@@ -56,3 +56,7 @@
 ## 2026-07-09 10:26
 
 修复看板反复显示 MySQL 空密码错误的问题。原因是 8787 端口上还跑着旧的 `run_dashboard.py` 进程，旧进程启动时没有读到 MySQL 密码；已停止旧进程并重启服务。`run_dashboard.py` 现在会从 Windows 用户环境变量读取 MySQL 配置，发现旧服务仍是空密码错误时会自动停掉后重启。已用 `D:\Anaconda3\python.exe` 完成语法检查和 MySQL 初始化检查。
+
+## 2026-07-17 15:39
+
+将项目打包上传到 GitHub 仓库 `zd312rzj/zd312rzj`。远程仓库已有根目录 README 和 `20260625-water-reminder`，因此未覆盖根目录，而是把当前项目作为 `20260708-douyin-live-danmaku-research/` 子目录提交到 `main` 分支。上传前已确认 `.gitignore` 排除 `node_modules`、`dist`、缓存、`.env` 和日志，并完成 Python 语法检查、Node 类型检查与敏感词扫描。
