@@ -1,0 +1,26 @@
+{
+  "name": "douyin-live-danmaku-research",
+  "version": "1.0.0",
+  "description": "验证“获取抖音直播间实时弹幕”的可行性，输出官方接入路线、非官方技术路线、风险点和 PoC 建议。",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "check": "tsc --noEmit",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "commander": "^15.0.0",
+    "protobufjs": "^8.7.0",
+    "ws": "^8.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.23.0",
+    "typescript": "^6.0.3"
+  }
+}

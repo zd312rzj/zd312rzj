@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>抖音直播实时看板</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <main class="dashboard-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="status-dot" id="statusDot"></span>
+          <h1>抖音直播实时看板</h1>
+        </div>
+        <label class="room-input">
+          <span>房间</span>
+          <input id="roomInput" placeholder="输入房间号或直播间URL" />
+        </label>
+        <div class="session-info" id="sessionInfo">未连接</div>
+        <div class="actions">
+          <label class="toggle">
+            <input type="checkbox" id="headlessInput" />
+            <span>无头</span>
+          </label>
+          <button id="startBtn">开始</button>
+          <button id="stopBtn" class="secondary">停止</button>
+          <a class="button secondary" href="/api/export/messages.csv">导出CSV</a>
+        </div>
+      </header>
+
+      <section class="metric-grid">
+        <article class="metric-card accent-pink">
+          <span>弹幕总数</span>
+          <strong id="totalMessages">0</strong>
+          <small id="totalHint">本场累计</small>
+        </article>
+        <article class="metric-card accent-blue">
+          <span>近1分钟</span>
+          <strong id="lastMinute">0</strong>
+          <small>条/分</small>
+        </article>
+        <article class="metric-card accent-cyan">
+          <span>活跃用户</span>
+          <strong id="activeUsers">0</strong>
+          <small>已发言用户</small>
+        </article>
+        <article class="metric-card accent-gold">
+          <span>关键词命中</span>
+          <strong id="keywordHits">0</strong>
+          <small>高频词累计</small>
+        </article>
+      </section>
+
+      <section class="main-grid">
+        <article class="panel trend-panel">
+          <div class="panel-head">
+            <h2>弹幕趋势</h2>
+            <span id="trendHint">最近30分钟</span>
+          </div>
+          <svg id="trendChart" viewBox="0 0 640 230" preserveAspectRatio="none"></svg>
+        </article>
+
+        <article class="panel status-panel">
+          <div class="panel-head">
+            <h2>行动提示</h2>
+            <span id="eventCount">0条事件</span>
+          </div>
+          <div id="systemEvents" class="event-list"></div>
+        </article>
+
+        <article class="panel keyword-panel">
+          <div class="panel-head">
+            <h2>关键词</h2>
+            <span>Top 12</span>
+          </div>
+          <div id="keywords" class="keyword-list"></div>
+        </article>
+      </section>
+
+      <section class="bottom-grid">
+        <article class="panel feed-panel">
+          <div class="panel-head">
+            <h2>实时弹幕</h2>
+            <span id="messageCount">0</span>
+          </div>
+          <div id="messageFeed" class="message-feed"></div>
+        </article>
+
+        <article class="panel users-panel">
+          <div class="panel-head">
+            <h2>用户发言榜</h2>
+            <span>Top 10</span>
+          </div>
+          <ol id="userRanking" class="ranking"></ol>
+        </article>
+      </section>
+    </main>
+    <script src="/assets/app.js"></script>
+  </body>
+</html>
